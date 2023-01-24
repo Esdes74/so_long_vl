@@ -1,0 +1,5 @@
+
+*.o
+*.a
+libft/mlx_linux/test/mlx-test
+so_long

@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 14:03:53 by eslamber          #+#    #+#             */
-/*   Updated: 2023/01/18 12:56:48 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/01/24 19:57:53 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,13 +55,32 @@ static void	init_graphics(t_map *map, void *mlx1, void *win)
 	}
 }
 
+typedef struct	s_vars {
+	void	*mlx;
+	void	*win;
+}				t_vars;
+
+static int	closes(int keycode, t_vars *vars)
+{
+	if (keycode == 97)
+		ft_printf("Je vous aimes\n");
+	if (keycode >= 2 && keycode <= 100)
+	{
+		ft_printf("key = %x\n", keycode);
+		mlx_destroy_window(vars->mlx, vars->win);
+		exit(0);
+	}
+	return (0);
+}
+
 void	graphics(t_map *map)
 {
-	void	*mlx;
-	void	*window;
-	void	*test;
-	int		img_taille = 16;
+	t_vars	vars;
 
+	vars.mlx = mlx_init();
+	vars.win = mlx_new_window(vars.mlx, 1920, 1080, "Hello world!");
+	mlx_hook(vars.win, 2, 1L<<0, closes, &vars);
+	mlx_loop(vars.mlx);
 	// TODO : faire la partie graphique sur mac
 	/* mlx = mlx_init(); */
 	/* window = mlx_new_window(mlx, 1920, 1080, "Hello World"); */

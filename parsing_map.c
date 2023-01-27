@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 16:34:32 by eslamber          #+#    #+#             */
-/*   Updated: 2023/01/12 09:51:51 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/01/27 14:00:54 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static int	annalyse_char(t_list *lst, char c, t_count *count)
 	else if (count->count_e != 0 && c == 'E')
 		return (ft_printf("Error\nMultiple exits not accepted\n"), 1);
 	else if (count->count_p != 0 && c == 'P')
-		return (ft_printf("Error\nMulti-joueur not accepted\n"), 1);
+		return (ft_printf("Error\nMulti-player not accepted\n"), 1);
 	else if (c == 'E' && count->count_e == 0)
 	{
 		if (add_list(lst, 'E', &count->count_e) == 1)

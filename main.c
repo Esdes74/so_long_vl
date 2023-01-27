@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 17:01:34 by eslamber          #+#    #+#             */
-/*   Updated: 2023/01/12 16:04:52 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/01/27 13:41:16 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int	main(int argc, char **argv)
 		return (1);
 	if (verif_map(&map) == 1)
 		return (delete_map(map), 1);
-	graphics(&map);
+	/* graphics(&map); */
 	print_map(map);
 	return (delete_map(map), 0);
 }

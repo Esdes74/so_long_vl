@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 10:08:07 by eslamber          #+#    #+#             */
-/*   Updated: 2023/01/12 09:27:09 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/01/27 16:05:18 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ static int	check_map(char **cpy, t_map *map)
 				return (ft_printf("Error\nExit not reachable\n"), 1);
 			if (map->tab[y][x].elem == 'E' && y != 1 && x != 1 \
 			&& y != map->y - 2 && x != map->x - 2)
-				return (ft_printf("Error\nExit not in center of map\n"), 1);
+				return (ft_printf("Error\nExit in center of map\n"), 1);
 			x++;
 		}
 		y++;

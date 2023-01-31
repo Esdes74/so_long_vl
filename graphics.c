@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 14:03:53 by eslamber          #+#    #+#             */
-/*   Updated: 2023/01/24 19:57:53 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/01/31 11:58:18 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,18 +76,25 @@ static int	closes(int keycode, t_vars *vars)
 void	graphics(t_map *map)
 {
 	t_vars	vars;
+	void	*test;
+	int		img_hauteur = -200;
+	int		img_largeur = -200;
+	char	*file = "./sprites/grass.xpm";
+	int		win_largeur = 1920;
+	int		win_hauteur = 1080;
 
-	vars.mlx = mlx_init();
-	vars.win = mlx_new_window(vars.mlx, 1920, 1080, "Hello world!");
-	mlx_hook(vars.win, 2, 1L<<0, closes, &vars);
-	mlx_loop(vars.mlx);
+	/* vars.mlx = mlx_init(); */
+	/* vars.win = mlx_new_window(vars.mlx, 1920, 1080, "Hello world!"); */
+	/* mlx_hook(vars.win, 2, 1L<<0, closes, &vars); */
+	/* mlx_loop(vars.mlx); */
 	// TODO : faire la partie graphique sur mac
-	/* mlx = mlx_init(); */
-	/* window = mlx_new_window(mlx, 1920, 1080, "Hello World"); */
-	/* test = mlx_xpm_file_to_image(window, "./sprites/tilesets/grass.xmp", &img_taille, &img_taille); */
-	/* if (test == NULL) */
-	/* 	ft_printf("BBBBBBBBBBBB\n"); */
-	/* /1* ft_printf("%p\n", test); *1/ */
-	/* /1* init_graphics(map, mlx, window); *1/ */
-	/* /1* mlx_loop(mlx); *1/ */
+	vars.mlx = mlx_init();
+	vars.win = mlx_new_window(vars.mlx, win_largeur, win_hauteur, "Hello World");
+	test = mlx_xpm_file_to_image(vars.mlx, file, &img_hauteur, &img_largeur);
+	if (test == NULL)
+		ft_printf("BBBBBBBBBBBB\n");
+	ft_printf("%p\n", test);
+	mlx_put_image_to_window(vars.mlx, vars.win, test, 150, 150);
+	/* init_graphics(map, mlx, window); */
+	mlx_loop(vars.mlx);
 }

@@ -1,0 +1,26 @@
+/* XPM */
+static char *d2FsbA__[] = {
+/* columns rows colors chars-per-pixel */
+"14 14 6 1 ",
+"  c #21110D",
+". c #503625",
+"X c #0C6E2F",
+"o c #755338",
+"O c #9D7658",
+"+ c #0ED145",
+/* pixels */
+"++++       +++",
+"+++ oOOOOOo ++",
+"++ oOOoooOOo +",
+"++ oOOoooOOo +",
+"++ .oOOOOOo. +",
+"+++ .ooooo. ++",
+"+++         ++",
+"+++ ..o.oo. ++",
+"+++ .ooo.o. ++",
+"+++ .ooo.o. ++",
+"++X .o.ooo. X+",
+"++X .. oo.. X+",
+"+XXX . . . XXX",
+"+++XXXXXXXXX++"
+};

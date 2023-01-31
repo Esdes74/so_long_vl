@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 15:44:41 by eslamber          #+#    #+#             */
-/*   Updated: 2023/01/16 12:51:09 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/01/31 18:07:45 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,11 @@ typedef struct s_count
 	int	count_c;
 }	t_count;
 
+typedef struct	s_vars {
+	void	*mlx;
+	void	*win;
+}				t_vars;
+
 // Print map in terminal
 void	print_map(t_map map);
 
@@ -52,6 +57,6 @@ int		creat_map(t_map *map, t_list *lst);
 int		verif_map(t_map *map);
 
 // Main of graphic part
-void	graphics(t_map *map);
+int		graphics(t_map *map);
 
 #endif

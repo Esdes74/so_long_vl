@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 14:03:53 by eslamber          #+#    #+#             */
-/*   Updated: 2023/01/31 11:58:18 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/01/31 18:35:42 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,11 +55,6 @@ static void	init_graphics(t_map *map, void *mlx1, void *win)
 	}
 }
 
-typedef struct	s_vars {
-	void	*mlx;
-	void	*win;
-}				t_vars;
-
 static int	closes(int keycode, t_vars *vars)
 {
 	if (keycode == 97)
@@ -73,13 +68,40 @@ static int	closes(int keycode, t_vars *vars)
 	return (0);
 }
 
-void	graphics(t_map *map)
+static int	creat_backgroud(t_map *map, t_vars *vars)
+{
+	int	i;
+	int	j;
+	int	h;
+	int	l;
+	void	*test;
+
+	i = 0;
+	while (i < map->y)
+	{
+		j = 0;
+		while (j < map->x)
+		{
+			if (map->tab[i][j].elem == '1')
+			{
+				test = mlx_xpm_file_to_image(vars->mlx, "./sprites/wall.xpm", &h, &l);
+				mlx_put_image_to_window(vars->mlx, vars->win, test, j * 14, i * 14);
+			}
+			j++;
+		}
+		i++;
+	}
+	return (0);
+}
+
+int	graphics(t_map *map)
 {
 	t_vars	vars;
 	void	*test;
-	int		img_hauteur = -200;
-	int		img_largeur = -200;
-	char	*file = "./sprites/grass.xpm";
+	int		img_hauteur = 2;
+	int		img_largeur = 2;
+	char	*file_empty = "./sprites/grass.xpm";
+	char	*file = "./sprites/wall.xpm";
 	int		win_largeur = 1920;
 	int		win_hauteur = 1080;
 
@@ -89,12 +111,15 @@ void	graphics(t_map *map)
 	/* mlx_loop(vars.mlx); */
 	// TODO : faire la partie graphique sur mac
 	vars.mlx = mlx_init();
-	vars.win = mlx_new_window(vars.mlx, win_largeur, win_hauteur, "Hello World");
+	if (vars.mlx == NULL)
+		return (1);
+	vars.win = mlx_new_window(vars.mlx, map->x * 14, map->y * 14, "So_long");
+	if (vars.win == NULL)
+		return (1);
+	creat_backgroud(map, &vars);
+	
 	test = mlx_xpm_file_to_image(vars.mlx, file, &img_hauteur, &img_largeur);
-	if (test == NULL)
-		ft_printf("BBBBBBBBBBBB\n");
-	ft_printf("%p\n", test);
-	mlx_put_image_to_window(vars.mlx, vars.win, test, 150, 150);
+	mlx_put_image_to_window(vars.mlx, vars.win, test, 164, 150);
 	/* init_graphics(map, mlx, window); */
 	mlx_loop(vars.mlx);
 }

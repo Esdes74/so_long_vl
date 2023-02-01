@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 15:44:41 by eslamber          #+#    #+#             */
-/*   Updated: 2023/01/31 18:07:45 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/02/01 17:16:02 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ typedef struct s_map
 {
 	int		x;
 	int		y;
+	void	*mlx;
+	void	*win;
 	t_elem	**tab;
 }	t_map;
 
@@ -39,10 +41,9 @@ typedef struct s_count
 	int	count_c;
 }	t_count;
 
-typedef struct	s_vars {
-	void	*mlx;
-	void	*win;
-}				t_vars;
+enum	e_key{
+	k_esc = 65307,
+};
 
 // Print map in terminal
 void	print_map(t_map map);

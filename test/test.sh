@@ -37,6 +37,26 @@ echo "###############################################"
 echo "###############################################"
 ./so_long test/Map_Correctes/map_correcte_bizzare.ber
 
+echo
+echo "=============== Tests format incorrectes ===================="
+echo
+echo "Tests nombre fichier incorrecte"
+echo
+./so_long test/Map_Correctes/map_correcte_bizzare.ber test/Map_Correctes/map_correcte_bizzare.ber
+echo "###############################################"
+./so_long
+echo
+echo "Tests nom fichier incorrecte"
+echo
+./so_long nom_incorrecte
+echo "###############################################"
+./so_long test/Map_Correctes/nom_incorecte.ber
+echo "###############################################"
+./so_long test/Map_Correctes/nom_incorecte.berf
+echo "###############################################"
+./so_long test/Map_Correctes/nom_incorecte.pdf
+
+echo
 echo "================= Tests map incorrectes ====================="
 echo
 echo "Tests dimensions map"

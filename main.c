@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 17:01:34 by eslamber          #+#    #+#             */
-/*   Updated: 2023/01/31 18:02:16 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/02/01 13:04:21 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static int	verif_format(char *s)
 	while (s[i])
 	{
 		if (s[i] == '.' && s[i + 1] == 'b' && s[i + 2] == 'e' \
-		&& s[i + 3] == 'r')
+		&& s[i + 3] == 'r' && s[i + 4] == '\0')
 			return (0);
 		i++;
 	}
@@ -50,7 +50,7 @@ int	main(int argc, char **argv)
 	map.y = 0;
 	map.tab = 0;
 	if (argc != 2)
-		return (ft_printf("Error\nToo much arguments\n"), 1);
+		return (free(lst), ft_printf("Error\nNot 1 argument\n"), 1);
 	if (verif_format(argv[1]) == 1 || parsing(argv[1], &map, lst) == 1)
 		return (1);
 	if (creat_map(&map, lst) == 1)

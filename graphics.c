@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 14:03:53 by eslamber          #+#    #+#             */
-/*   Updated: 2023/01/31 18:35:42 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/01/31 18:55:10 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,19 @@ static int	closes(int keycode, t_vars *vars)
 	return (0);
 }
 
+static int	put_image(char *sp, t_vars *vr, int x, int y)
+{
+	int		h;
+	int		l;
+	void	*test;
+
+	test = mlx_xpm_file_to_image(vr->mlx, sp, &h, &l);
+	if (test == NULL)
+		return (1);
+	mlx_put_image_to_window(vr->mlx, vr->win, test, x, y);
+	return (0);
+}
+
 static int	creat_backgroud(t_map *map, t_vars *vars)
 {
 	int	i;
@@ -82,11 +95,16 @@ static int	creat_backgroud(t_map *map, t_vars *vars)
 		j = 0;
 		while (j < map->x)
 		{
-			if (map->tab[i][j].elem == '1')
-			{
-				test = mlx_xpm_file_to_image(vars->mlx, "./sprites/wall.xpm", &h, &l);
-				mlx_put_image_to_window(vars->mlx, vars->win, test, j * 14, i * 14);
-			}
+			if (map->tab[i][j].elem == '1') // TODO : gestion en cas de retour erreur dep put_image
+				put_image("./sprites/wall.xpm", vars, j * 14, i * 14);
+			if (map->tab[i][j].elem == '0') // TODO : gestion en cas de retour erreur dep put_image
+				put_image("./sprites/grass.xpm", vars, j * 14, i * 14);
+			if (map->tab[i][j].elem == 'P') // TODO : gestion en cas de retour erreur dep put_image
+				put_image("./sprites/player.xpm", vars, j * 14, i * 14);
+			if (map->tab[i][j].elem == 'C') // TODO : gestion en cas de retour erreur dep put_image
+				put_image("./sprites/chest.xpm", vars, j * 14, i * 14);
+			if (map->tab[i][j].elem == 'E') // TODO : gestion en cas de retour erreur dep put_image
+				put_image("./sprites/exit.xpm", vars, j * 14, i * 14);
 			j++;
 		}
 		i++;

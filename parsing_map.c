@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 16:34:32 by eslamber          #+#    #+#             */
-/*   Updated: 2023/02/01 12:58:31 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/02/02 12:09:57 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,8 @@ static int	annalyse(t_list *lst, char *s, t_map *map)
 			return (ft_printf("Error\nNo perso in map\n"), 1);
 		if (count.count_c == 0)
 			return (ft_printf("Error\nNo coins in map\n"), 1);
+		else
+			map->count_c = count.count_c;
 	}
 	while (s != NULL && s[i])
 	{

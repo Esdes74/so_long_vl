@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 17:01:34 by eslamber          #+#    #+#             */
-/*   Updated: 2023/02/01 13:04:21 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/02/02 14:15:46 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,13 @@ static void	delete_map(t_map map)
 	free(map.tab);
 }
 
+static void	destroy_mlx(t_map map)
+{
+	mlx_destroy_window(map.mlx, map.win);
+	mlx_destroy_display(map.mlx);
+	free(map.mlx);
+}
+
 int	main(int argc, char **argv)
 {
 	t_map	map;
@@ -58,7 +65,7 @@ int	main(int argc, char **argv)
 	if (verif_map(&map) == 1)
 		return (delete_map(map), 1);
 	if (graphics(&map) == 1)
-		return (delete_map(map), 1);
+		return (delete_map(map), destroy_mlx(map), 1);
 	print_map(map);
 	return (delete_map(map), 0);
 }

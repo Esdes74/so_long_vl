@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 15:44:41 by eslamber          #+#    #+#             */
-/*   Updated: 2023/02/01 17:16:02 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/02/02 15:29:28 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ typedef struct s_map
 {
 	int		x;
 	int		y;
+	int		count_c;
 	void	*mlx;
 	void	*win;
 	t_elem	**tab;
@@ -43,6 +44,14 @@ typedef struct s_count
 
 enum	e_key{
 	k_esc = 65307,
+	k_w = 119,
+	k_s = 115,
+	k_a = 97,
+	k_d = 100,
+	k_up = 65362,
+	k_do = 65364,
+	k_ri = 65363,
+	k_le = 65361,
 };
 
 // Print map in terminal
@@ -59,5 +68,8 @@ int		verif_map(t_map *map);
 
 // Main of graphic part
 int		graphics(t_map *map);
+
+// Initialisation of hook events
+int		init_key_events(int key, t_map *map);
 
 #endif

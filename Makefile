@@ -6,7 +6,7 @@
 #    By: eslamber <eslamber@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/07 16:40:33 by eslamber          #+#    #+#              #
-#    Updated: 2023/02/02 15:30:18 by eslamber         ###   ########.fr        #
+#    Updated: 2023/02/02 21:00:13 by eslamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@
 #
 
 # Compilation flags
-FLAGS := -Wall -Werror -Wextra #-g -fsanitize=address -fno-omit-frame-pointer
+FLAGS := -Wall -Werror -Wextra -g# -fsanitize=address -fno-omit-frame-pointer
 CC := gcc
 
 FLAG_MLX := -Lmlx_linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz \
@@ -33,6 +33,7 @@ SRC := parsing_map.c \
 		creat_map.c \
 		verif_map.c \
 		graphics.c \
+		key_event.c \
 		main.c
 OBJ := $(SRC:%.c=%.o)
 

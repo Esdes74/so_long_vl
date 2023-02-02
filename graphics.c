@@ -6,36 +6,11 @@
 /*   By: eslamber <eslamber@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 14:03:53 by eslamber          #+#    #+#             */
-/*   Updated: 2023/02/02 15:24:26 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/02/02 18:37:45 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-static int	closes(int keycode, t_map *map)
-{
-	int	j;
-
-	if (keycode == k_esc)
-	{
-		j = 0;
-		while (j < map->y)
-			free(map->tab[j++]);
-		free(map->tab);
-		mlx_destroy_window(map->mlx, map->win);
-		mlx_destroy_display(map->mlx);
-		free(map->mlx);
-		exit(1);
-	}
-	else if (keycode == k_a || keycode == k_le)
-		ft_printf("A");
-	else if (keycode == k_d || keycode == k_ri)
-		ft_printf("D");
-	else if (keycode == k_s || keycode == k_do)
-		ft_printf("S");
-	else if (keycode == k_w || keycode == k_up)
-		ft_printf("W");
-}
 
 static int	put_image(char *sp, t_map map, int x, int y)
 {
@@ -96,6 +71,6 @@ int	graphics(t_map *map)
 		return (1);
 	if (creat_backgroud(*map) == 1)
 		return (1);
-	mlx_key_hook(map->win, closes, map);
+	mlx_key_hook(map->win, init_key_events, map);
 	mlx_loop(map->mlx);
 }

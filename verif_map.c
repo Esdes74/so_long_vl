@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 10:08:07 by eslamber          #+#    #+#             */
-/*   Updated: 2023/01/27 16:05:18 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/02/02 20:56:23 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,11 @@ static char	**map_copy(t_map *map)
 
 static void	diffusion(char **cpy, int x, int y, t_map *map)
 {
+	if (map->perso_x == -1 && map->perso_y == -1)
+	{
+		map->perso_x = x;
+		map->perso_y = y;
+	}
 	if (x >= map->x || y >= map->y || x < 0 \
 	|| y < 0 || cpy[y][x] == 'X' || cpy[y][x] == '*')
 		return ;

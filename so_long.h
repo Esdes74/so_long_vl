@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 15:44:41 by eslamber          #+#    #+#             */
-/*   Updated: 2023/02/02 15:29:28 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/02/02 20:19:36 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ typedef struct s_map
 	int		x;
 	int		y;
 	int		count_c;
+	int		perso_x;
+	int		perso_y;
 	void	*mlx;
 	void	*win;
 	t_elem	**tab;

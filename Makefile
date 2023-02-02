@@ -6,7 +6,7 @@
 #    By: eslamber <eslamber@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/07 16:40:33 by eslamber          #+#    #+#              #
-#    Updated: 2023/02/01 12:18:31 by eslamber         ###   ########.fr        #
+#    Updated: 2023/02/02 10:25:50 by eslamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,7 +60,8 @@ clean:
 	@rm -rfv $(OBJ)
 	make -C libft clean
 
-fclean: clean
+fclean:
+	@rm -rfv $(OBJ)
 	@rm -rfv $(NAME)
 	make -C libft fclean
 

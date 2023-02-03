@@ -6,7 +6,7 @@
 #    By: eslamber <eslamber@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/07 16:40:33 by eslamber          #+#    #+#              #
-#    Updated: 2023/02/03 13:31:04 by eslamber         ###   ########.fr        #
+#    Updated: 2023/02/03 14:38:20 by eslamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,12 +30,12 @@ HEADER := so_long.h \
 
 # Definition of files variables
 SRC := parsing_map.c \
-		print_map.c \
-		creat_map.c \
-		verif_map.c \
-		graphics.c \
-		key_event.c \
-		main.c
+	   print_map.c \
+	   creat_map.c \
+	   verif_map.c \
+	   graphics.c \
+	   key_event.c \
+	   main.c
 OBJ := $(SRC:%.c=%.o)
 
 #
@@ -45,13 +45,13 @@ OBJ := $(SRC:%.c=%.o)
 all: $(LIB) $(NAME)
 
 $(LIB):
-	make -C libft/mlx_linux
-	make -C libft
+	make -C ./libft/mlx_linux
+	make -C ./libft
 
 $(NAME): $(OBJ)
 	$(CC) $(FLAGS) $(OBJ) -o $@ $(FLAG_MLX) -L. libft/$(LIB)
 
-%.O: %.c $(HEADER)
+%.o: %.c $(HEADER)
 	$(CC) $(FLAGS) -I/usr/include -Ilibft/mlx_linux -c $< -o $@
 
 #

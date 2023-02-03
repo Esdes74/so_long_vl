@@ -6,7 +6,7 @@
 #    By: eslamber <eslamber@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/05 15:42:31 by eslamber          #+#    #+#              #
-#    Updated: 2023/01/16 12:30:02 by eslamber         ###   ########.fr        #
+#    Updated: 2023/02/03 14:16:41 by eslamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -376,8 +376,7 @@ gitignor:
 	@echo
 
 # Full cleaning rules
-fclean: clean cleanlib clean_git \
-	cleandir dir_lib gitignor
+fclean: clean cleanlib clean_git cleandir dir_lib gitignor
 
 # Remake rules
 re: fcleanlib

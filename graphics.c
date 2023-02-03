@@ -6,25 +6,11 @@
 /*   By: eslamber <eslamber@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 14:03:53 by eslamber          #+#    #+#             */
-/*   Updated: 2023/02/02 18:37:45 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/02/03 12:24:48 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-static int	put_image(char *sp, t_map map, int x, int y)
-{
-	int		h;
-	int		l;
-	void	*test;
-
-	test = mlx_xpm_file_to_image(map.mlx, sp, &h, &l);
-	if (test == NULL)
-		return (1);
-	mlx_put_image_to_window(map.mlx, map.win, test, x, y);
-	mlx_destroy_image(map.mlx, test);
-	return (0);
-}
 
 static int	witch_sprite(t_map map, int j, int i)
 {
@@ -61,6 +47,20 @@ static int	creat_backgroud(t_map map)
 	return (0);
 }
 
+int	put_image(char *sp, t_map map, int x, int y)
+{
+	int		h;
+	int		l;
+	void	*test;
+
+	test = mlx_xpm_file_to_image(map.mlx, sp, &h, &l);
+	if (test == NULL)
+		return (1);
+	mlx_put_image_to_window(map.mlx, map.win, test, x, y);
+	mlx_destroy_image(map.mlx, test);
+	return (0);
+}
+
 int	graphics(t_map *map)
 {
 	map->mlx = mlx_init();
@@ -72,5 +72,6 @@ int	graphics(t_map *map)
 	if (creat_backgroud(*map) == 1)
 		return (1);
 	mlx_key_hook(map->win, init_key_events, map);
+	mlx_hook(map->win, 17, 1L<<2, quit, map);
 	mlx_loop(map->mlx);
 }

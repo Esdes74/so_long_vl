@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 15:44:41 by eslamber          #+#    #+#             */
-/*   Updated: 2023/02/02 20:19:36 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/02/03 12:22:26 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,12 @@ int		verif_map(t_map *map);
 
 // Main of graphic part
 int		graphics(t_map *map);
+
+// Put image sp in window
+int		put_image(char *sp, t_map map, int x, int y);
+
+// close programme
+int		quit(t_map *map);
 
 // Initialisation of hook events
 int		init_key_events(int key, t_map *map);

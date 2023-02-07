@@ -6,7 +6,7 @@
 #    By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/07 16:40:33 by eslamber          #+#    #+#              #
-#    Updated: 2023/02/07 15:44:28 by eslamber         ###   ########.fr        #
+#    Updated: 2023/02/07 16:19:42 by eslamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,25 +32,6 @@ LIB_DIR := libft/
 LIB := $(LIB_DIR)libft.a
 MLX := $(LIB_DIR)mlx_linux/libmlx.a \
 		$(LIB_DIR)mlx_linux/libmlx_Linux.a
-HEADER_LIB := $(LIB_DIR)libft.h \
-				#$(LIB_DIR)lib_data/lib_data.h \
-				$(LIB_DIR)lib_data/l_list/lib_list.h \
-				$(LIB_DIR)lib_data/l_list_ind/lib_list_ind.h \
-				$(LIB_DIR)lib_data/l_queue/lib_queue.h \
-				$(LIB_DIR)lib_data/l_simple/lib_simple.h \
-				$(LIB_DIR)lib_data/l_stack/lib_stack.h \
-				$(LIB_DIR)lib_data/l_tree/lib_tree.h \
-				$(LIB_DIR)lib_fct/lib_fct.h \
-				$(LIB_DIR)lib_fct/lib_math/lib_math.h \
-				$(LIB_DIR)lib_fct/lib_mem/lib_mem.h \
-				$(LIB_DIR)lib_fct/lib_print/lib_print.h \
-				$(LIB_DIR)lib_fct/lib_str/lib_str.h \
-				$(LIB_DIR)lib_fct/lib_str/get_next_line.h
-HEADER_MLX := $(LIB_DIR)mlx_linux/mlx.h \
-				$(LIB_DIR)mlx_linux/mlx_int.h
-
-DEP_MLX := $(MLX) $(HEADER_MLX)
-DEP_LIB := $(LIB) $(HEADER_LIB)
 
 # Definition of project variables
 NAME := so_long

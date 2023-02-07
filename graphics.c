@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   graphics.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eslamber <eslamber@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 14:03:53 by eslamber          #+#    #+#             */
-/*   Updated: 2023/02/03 19:45:04 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/02/07 15:37:15 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ int	graphics(t_map *map)
 	if (creat_backgroud(*map) == 1)
 		return (2);
 	mlx_key_hook(map->win, init_key_events, map);
-	mlx_hook(map->win, 17, 1L<<2, quit, map);
+	mlx_hook(map->win, 17, 1L << 2, quit, map);
 	mlx_loop(map->mlx);
+	return (0);
 }

@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eslamber <eslamber@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 17:01:34 by eslamber          #+#    #+#             */
-/*   Updated: 2023/02/03 19:45:23 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/02/07 15:38:18 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-static int	verif_format(char *s)
+static int	verif_format(char *s, t_list *lst)
 {
 	int	i;
 
@@ -25,6 +25,7 @@ static int	verif_format(char *s)
 		i++;
 	}
 	ft_printf("Error\nWrong file format\n");
+	free(lst);
 	return (1);
 }
 
@@ -70,7 +71,7 @@ int	main(int argc, char **argv)
 	init_data_so_long(lst, &map);
 	if (argc != 2)
 		return (free(lst), ft_printf("Error\nNot 1 argument\n"), 1);
-	if (verif_format(argv[1]) == 1 || parsing(argv[1], &map, lst) == 1)
+	if (verif_format(argv[1], lst) == 1 || parsing(argv[1], &map, lst) == 1)
 		return (1);
 	if (creat_map(&map, lst) == 1)
 		return (1);
@@ -81,6 +82,5 @@ int	main(int argc, char **argv)
 		return (delete_map(map), destroy_mlx(map), 1);
 	if (graph == 1)
 		return (delete_map(map), 1);
-	print_map(map);
 	return (delete_map(map), 0);
 }

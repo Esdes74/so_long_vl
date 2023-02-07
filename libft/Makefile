@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: eslamber <eslamber@student.42lyon.fr>      +#+  +:+       +#+         #
+#    By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/05 15:42:31 by eslamber          #+#    #+#              #
-#    Updated: 2023/02/03 14:16:41 by eslamber         ###   ########.fr        #
+#    Updated: 2023/02/07 12:08:40 by eslamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -200,7 +200,7 @@ STR_LIB := ft_atoi.c \
 		   get_next_line_utils.c \
 		   get_next_line.c
 STR_LIB_H := $(LIB_STR)lib_str.h \
-			 $(LIB_STR)lib_str.h
+			 $(LIB_STR)get_next_line.h
 STR_OBJ_LIB := $(STR_LIB:%.c=$(LIB_STR_OBJ)%.o)
 
 ALL_OBJ_LIB := $(LIST_OBJ_LIB) \
@@ -226,56 +226,56 @@ NEUTRAL := '\e[0m'
 # only lib
 all: $(LIB)
 
-$(LIB): $(ALL_OBJ_LIB)
+$(LIB): $(ALL_OBJ_LIB) libft.h
 	ar rc $@ $(ALL_OBJ_LIB)
 	ranlib $@
 
 $(LIST_OBJ_LIB): $(LIB_LIST_OBJ)%.o: $(LIB_LIST_SRC)%.c $(LIST_LIB_H) \
-	$(LIB_DATA)lib_data.h
+	$(LIB_DATA)lib_data.h libft.h
 	$(CC) $(FLAGS) -c $< -o $@
 
 $(LIST_IND_OBJ_LIB): $(LIB_LIST_IND_OBJ)%.o: $(LIB_LIST_IND_SRC)%.c \
-	$(LIST_IND_LIB_H) $(LIB_DATA)lib_data.h
+	$(LIST_IND_LIB_H) $(LIB_DATA)lib_data.h libft.h
 	$(CC) $(FLAGS) -c $< -o $@
 
 $(QUEUE_OBJ_LIB): $(LIB_QUEUE_OBJ)%.o: $(LIB_QUEUE_SRC)%.c $(QUEUE_LIB_H) \
-	$(LIB_DATA)lib_data.h
+	$(LIB_DATA)lib_data.h libft.h
 	$(CC) $(FLAGS) -c $< -o $@
 
 $(STACK_OBJ_LIB): $(LIB_STACK_OBJ)%.o: $(LIB_STACK_SRC)%.c $(STACK_LIB_H) \
-	$(LIB_DATA)lib_data.h
+	$(LIB_DATA)lib_data.h libft.h
 	$(CC) $(FLAGS) -c $< -o $@
 
 $(SIMPLE_OBJ_LIB): $(LIB_SIMPLE_OBJ)%.o: $(LIB_SIMPLE_SRC)%.c $(SIMPLE_LIB_H) \
-	$(LIB_DATA)lib_data.h
+	$(LIB_DATA)lib_data.h libft.h
 	$(CC) $(FLAGS) -c $< -o $@
 
 $(TREE_OBJ_LIB): $(LIB_TREE_OBJ)%.o: $(LIB_TREE_SRC)%.c $(TREE_LIB_H) \
-	$(LIB_DATA)lib_data.h
+	$(LIB_DATA)lib_data.h libft.h
 	$(CC) $(FLAGS) -c $< -o $@
 
 $(GNRL_OBJ_LIB): $(LIB_GNRL_OBJ)%.o: $(LIB_GNRL_SRC)%.c $(GNRL_LIB_H) \
-	$(LIB_DATA)lib_data.h
+	$(LIB_DATA)lib_data.h libft.h
 	$(CC) $(FLAGS) -c $< -o $@
 
 $(MATH_OBJ_LIB): $(LIB_MATH_OBJ)%.o: $(LIB_MATH_SRC)%.c $(MATH_LIB_H) \
-	$(LIB_FCT)lib_fct.h
+	$(LIB_FCT)lib_fct.h libft.h
 	$(CC) $(FLAGS) -c $< -o $@
 
 $(MEM_OBJ_LIB): $(LIB_MEM_OBJ)%.o: $(LIB_MEM_SRC)%.c $(MEM_LIB_H) \
-	$(LIB_FCT)lib_fct.h
+	$(LIB_FCT)lib_fct.h libft.h
 	$(CC) $(FLAGS) -c $< -o $@
 
 $(PRINT_OBJ_LIB): $(LIB_PRINT_OBJ)%.o: $(LIB_PRINT_SRC)%.c $(PRINT_LIB_H) \
-	$(LIB_FCT)lib_fct.h
+	$(LIB_FCT)lib_fct.h libft.h
 	$(CC) $(FLAGS) -c $< -o $@
 
 $(STR_OBJ_LIB): $(LIB_STR_OBJ)%.o: $(LIB_STR_SRC)%.c $(STR_LIB_H) \
-	$(LIB_FCT)lib_fct.h
+	$(LIB_FCT)lib_fct.h libft.h
 	$(CC) $(FLAGS) -c $< -o $@
 
 $(GNL_OBJ_LIB): $(LIB_GNL_OBJ)%.o: $(LIB_GNL_SRC)%.c $(GNL_LIB_H) \
-	$(LIB_FCT)lib_fct.h
+	$(LIB_FCT)lib_fct.h libft.h
 	$(CC) $(FLAGS) -c $< -o $@
 
 #

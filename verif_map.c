@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 10:08:07 by eslamber          #+#    #+#             */
-/*   Updated: 2023/02/07 15:44:19 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/02/07 18:21:06 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,7 +109,7 @@ int	verif_map(t_map *map)
 
 	cpy_map = map_copy(map);
 	if (cpy_map == 0)
-		return (1);
+		return (ft_printf("Error\n"), 1);
 	y = 0;
 	pos_p = 0;
 	while (y < map->y && pos_p == 0)
@@ -125,6 +125,6 @@ int	verif_map(t_map *map)
 	}
 	diffusion(cpy_map, x - 1, y - 1, map);
 	if (check_map(cpy_map, map) == 1)
-		return (delete_map(cpy_map, map), 1);
+		return (delete_map(cpy_map, map), ft_printf("Error\n"), 1);
 	return (delete_map(cpy_map, map), 0);
 }

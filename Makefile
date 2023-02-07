@@ -6,7 +6,7 @@
 #    By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/07 16:40:33 by eslamber          #+#    #+#              #
-#    Updated: 2023/02/07 16:19:42 by eslamber         ###   ########.fr        #
+#    Updated: 2023/02/07 16:21:07 by eslamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,13 +15,10 @@
 #
 
 # Compilation flags
-FLAGS := -Wall -Werror -Wextra #-O3
-#FLAGS += -g -fsanitize=address -fno-omit-frame-pointer
+FLAGS := -Wall -Werror -Wextra
 CC := gcc
 
 FLAG_MLX := libft/mlx_linux/libmlx.a -lm -L/usr/lib -lXext -lX11 -lz
-#			-Lmlx_linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz \
-			libft/mlx_linux/libmlx.a libft/mlx_linux/libmlx_Linux.a
 
 #
 ### Definition of names variables

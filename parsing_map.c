@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_map.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eslamber <eslamber@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 16:34:32 by eslamber          #+#    #+#             */
-/*   Updated: 2023/02/02 20:16:22 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/02/07 18:19:55 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,11 +124,11 @@ int	parsing(char *s, t_map *map, t_list *lst)
 		if (map->x != len)
 			return (d_lst(lst, str, map), ft_printf("Error\nNot oblong\n"), 1);
 		if (annalyse(lst, str, map) == 1)
-			return (d_lst(lst, str, map), 1);
+			return (d_lst(lst, str, map), ft_printf("Error\n"), 1);
 		free(str);
 		str = get_next_line(fd);
 	}
 	if (close(fd) == -1 || annalyse(lst, str, map) == 1)
-		return (d_lst(lst, str, map), 1);
+		return (d_lst(lst, str, map), ft_printf("Error\n"), 1);
 	return (free(str), 0);
 }

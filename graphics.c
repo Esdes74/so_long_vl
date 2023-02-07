@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 14:03:53 by eslamber          #+#    #+#             */
-/*   Updated: 2023/02/07 15:37:15 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/02/07 18:23:04 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,10 +65,11 @@ int	graphics(t_map *map)
 {
 	map->mlx = mlx_init();
 	if (map->mlx == NULL)
-		return (1);
+		return (ft_printf("Error\n"), 1);
 	map->win = mlx_new_window(map->mlx, map->x * 14, map->y * 14, "So_long");
 	if (map->win == NULL)
-		return (mlx_destroy_display(map->mlx), free(map->mlx), 1);
+		return (mlx_destroy_display(map->mlx), free(map->mlx), \
+		ft_printf("Error\n"), 1);
 	if (creat_backgroud(*map) == 1)
 		return (2);
 	mlx_key_hook(map->win, init_key_events, map);

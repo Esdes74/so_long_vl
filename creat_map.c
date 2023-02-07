@@ -6,13 +6,13 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 12:35:29 by eslamber          #+#    #+#             */
-/*   Updated: 2023/02/07 15:31:46 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/02/07 18:25:05 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-static void	delete_map(t_map *map, int x)
+static void	del_map(t_map *map, int x)
 {
 	int	i;
 
@@ -48,13 +48,13 @@ int	creat_map(t_map *map, t_list *lst)
 	i = 0;
 	map->tab = (t_elem **) malloc(sizeof(t_elem *) * (map->y));
 	if (map->tab == 0)
-		return (delete_lst(lst), 1);
+		return (delete_lst(lst), ft_printf("Error\n"), 1);
 	while (i < map->y)
 	{
 		j = 0;
 		map->tab[i] = (t_elem *) malloc(sizeof(t_elem) * (map->x));
 		if (map->tab[i] == 0)
-			return (delete_map(map, i), delete_lst(lst), 1);
+			return (del_map(map, i), delete_lst(lst), ft_printf("Error\n"), 1);
 		while (j < map->x)
 		{
 			cell = unstack_list(lst, 1);

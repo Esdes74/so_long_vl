@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 17:01:34 by eslamber          #+#    #+#             */
-/*   Updated: 2023/02/07 15:38:18 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/02/07 18:05:35 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ int	main(int argc, char **argv)
 
 	lst = (t_list *) malloc(sizeof(t_list));
 	if (lst == 0)
-		return (1);
+		return (ft_printf("Error\n"), 1);
 	init_data_so_long(lst, &map);
 	if (argc != 2)
 		return (free(lst), ft_printf("Error\nNot 1 argument\n"), 1);
@@ -79,8 +79,8 @@ int	main(int argc, char **argv)
 		return (delete_map(map), 1);
 	graph = graphics(&map);
 	if (graph == 2)
-		return (delete_map(map), destroy_mlx(map), 1);
+		return (delete_map(map), destroy_mlx(map), ft_printf("Error\n"), 1);
 	if (graph == 1)
-		return (delete_map(map), 1);
+		return (delete_map(map), ft_printf("Error\n"), 1);
 	return (delete_map(map), 0);
 }

@@ -6,7 +6,7 @@
 #    By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/07 16:40:33 by eslamber          #+#    #+#              #
-#    Updated: 2023/02/08 14:09:38 by eslamber         ###   ########.fr        #
+#    Updated: 2023/02/08 17:22:55 by eslamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@
 #
 
 # Compilation flags
-FLAGS := -Wall -Wextra
+FLAGS := -Wall -Werror -Wextra
 CC := gcc
 
 FLAG_MLX := libft/mlx_linux/libmlx.a -lm -L/usr/lib -lXext -lX11 -lz
@@ -27,8 +27,7 @@ FLAG_MLX := libft/mlx_linux/libmlx.a -lm -L/usr/lib -lXext -lX11 -lz
 # Definition of LIB variables
 LIB_DIR := libft/
 LIB := $(LIB_DIR)libft.a
-MLX := $(LIB_DIR)mlx_linux/libmlx.a \
-		$(LIB_DIR)mlx_linux/libmlx_Linux.a
+MLX := $(LIB_DIR)mlx_linux/libmlx.a
 
 # Definition of project variables
 NAME := so_long
@@ -59,7 +58,7 @@ $(LIB): FORCE
 	make -C $(LIB_DIR)
 
 $(MLX): FORCE
-	make -C $(LIB_DIR)mlx_linux
+	make -sC $(LIB_DIR)mlx_linux
 
 #
 ### Cleanup rules
@@ -67,7 +66,7 @@ $(MLX): FORCE
 
 clean:
 	@rm -rfv $(OBJ)
-	make -C libft clean
+	make -sC libft clean
 
 fclean:
 	@rm -rfv $(OBJ)
@@ -76,4 +75,4 @@ fclean:
 
 re: fclean all
 
-.PHONY: all clean fclean re mlx FORCE
+.PHONY: all clean fclean re FORCE

@@ -87,6 +87,8 @@ echo "###############################################"
 $1 ./so_long test/Map_Error/map_error_only_exit.ber
 echo "###############################################"
 $1 ./so_long test/Map_Error/map_error_only_wall.ber
+echo "###############################################"
+$1 ./so_long test/Map_Error/map_error_charactere_not_good.ber
 
 echo
 echo "Tests map non faisable"

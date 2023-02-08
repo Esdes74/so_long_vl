@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 18:26:52 by eslamber          #+#    #+#             */
-/*   Updated: 2023/02/08 14:46:08 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/02/08 15:07:17 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 static int	following_check(t_map *map, int x, int y)
 {
-	if (put_image("./sprites/grass.xpm", *map, map->perso_x * 28,\
-	 map->perso_y * 28) == 1)
+	if (put_image("./sprites/grass.xpm", *map, map->perso_x * 28, \
+	map->perso_y * 28) == 1)
 		return (1);
 	map->tab[map->perso_y][map->perso_x] = '0';
 	map->tab[y][x] = 'P';

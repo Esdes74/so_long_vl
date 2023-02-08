@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 16:34:32 by eslamber          #+#    #+#             */
-/*   Updated: 2023/02/08 14:07:20 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/02/08 17:12:07 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ static int	annalyse_char(t_list *lst, char c, t_count *count)
 	int	mod;
 
 	mod = 1;
+	if (c != '0' || c != '1' || c != 'P' || c != 'E' || c != 'C')
+		return (ft_printf("Error\n"), 1);
 	if (c == '0' || c == '1' || c == 'C')
 	{
 		if (c == 'C')

@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 18:26:52 by eslamber          #+#    #+#             */
-/*   Updated: 2023/02/07 18:02:20 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/02/08 14:46:08 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 
 static int	following_check(t_map *map, int x, int y)
 {
-	if (put_image("./sprites/grass.xpm", *map, map->perso_x * 14,\
-	 map->perso_y * 14) == 1)
+	if (put_image("./sprites/grass.xpm", *map, map->perso_x * 28,\
+	 map->perso_y * 28) == 1)
 		return (1);
-	map->tab[map->perso_y][map->perso_x].elem = '0';
-	map->tab[y][x].elem = 'P';
+	map->tab[map->perso_y][map->perso_x] = '0';
+	map->tab[y][x] = 'P';
 	map->perso_y = y;
 	map->perso_x = x;
-	if (put_image("./sprites/player.xpm", *map, map->perso_x * 14, \
-	map->perso_y * 14) == 1)
+	if (put_image("./sprites/player.xpm", *map, map->perso_x * 28, \
+	map->perso_y * 28) == 1)
 		return (1);
 	return (0);
 }
@@ -31,14 +31,14 @@ static int	check_move(t_map *map, int x, int y)
 {
 	static int	move;
 
-	if (map->tab[y][x].elem == '1')
-		return (1);
-	else if (map->tab[y][x].elem == 'C')
+	if (map->tab[y][x] == '1')
+		return (2);
+	else if (map->tab[y][x] == 'C')
 	{
-		map->tab[y][x].elem = '0';
+		map->tab[y][x] = '0';
 		map->count_c--;
 	}
-	else if (map->tab[y][x].elem == 'E')
+	else if (map->tab[y][x] == 'E')
 	{
 		if (map->count_c == 0)
 		{
@@ -46,7 +46,7 @@ static int	check_move(t_map *map, int x, int y)
 			quit(map);
 		}
 		else
-			return (1);
+			return (2);
 	}
 	if (following_check(map, x, y) == 1)
 		return (ft_printf("Error\n"), 1);

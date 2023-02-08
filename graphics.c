@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 14:03:53 by eslamber          #+#    #+#             */
-/*   Updated: 2023/02/07 18:23:04 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/02/08 14:51:41 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,16 @@
 
 static int	witch_sprite(t_map map, int j, int i)
 {
-	if (map.tab[i][j].elem == '1')
-		return (put_image("./sprites/wall.xpm", map, j * 14, i * 14));
-	else if (map.tab[i][j].elem == '0')
-		return (put_image("./sprites/grass.xpm", map, j * 14, i * 14));
-	else if (map.tab[i][j].elem == 'P')
-		return (put_image("./sprites/player.xpm", map, j * 14, i * 14));
-	else if (map.tab[i][j].elem == 'C')
-		return (put_image("./sprites/chest.xpm", map, j * 14, i * 14));
-	else if (map.tab[i][j].elem == 'E')
-		return (put_image("./sprites/exit.xpm", map, j * 14, i * 14));
+	if (map.tab[i][j] == '1')
+		return (put_image("./sprites/wall.xpm", map, j * 28, i * 28));
+	else if (map.tab[i][j] == '0')
+		return (put_image("./sprites/grass.xpm", map, j * 28, i * 28));
+	else if (map.tab[i][j] == 'P')
+		return (put_image("./sprites/player.xpm", map, j * 28, i * 28));
+	else if (map.tab[i][j] == 'C')
+		return (put_image("./sprites/chest.xpm", map, j * 28, i * 28));
+	else if (map.tab[i][j] == 'E')
+		return (put_image("./sprites/exit.xpm", map, j * 28, i * 28));
 	return (1);
 }
 
@@ -66,13 +66,13 @@ int	graphics(t_map *map)
 	map->mlx = mlx_init();
 	if (map->mlx == NULL)
 		return (ft_printf("Error\n"), 1);
-	map->win = mlx_new_window(map->mlx, map->x * 14, map->y * 14, "So_long");
+	map->win = mlx_new_window(map->mlx, map->x * 28, map->y * 28, "So_long");
 	if (map->win == NULL)
 		return (mlx_destroy_display(map->mlx), free(map->mlx), \
 		ft_printf("Error\n"), 1);
 	if (creat_backgroud(*map) == 1)
-		return (2);
-	mlx_key_hook(map->win, init_key_events, map);
+		return (ft_printf("Error\n"), 2);
+	mlx_hook(map->win, 2, 1L << 0, init_key_events, map);
 	mlx_hook(map->win, 17, 1L << 2, quit, map);
 	mlx_loop(map->mlx);
 	return (0);

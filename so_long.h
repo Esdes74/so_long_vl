@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eslamber <eslamber@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 15:44:41 by eslamber          #+#    #+#             */
-/*   Updated: 2023/02/03 12:22:26 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/02/08 14:07:29 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,6 @@
 # define SO_LONG_H
 # include "libft/libft.h"
 # include "./libft/mlx_linux/mlx.h"
-
-typedef struct s_elem
-{
-	char	elem;
-	void	*img;
-	char	*adr;
-	int		bpp;
-	int		line_len;
-	int		endian;
-}	t_elem;
 
 typedef struct s_map
 {
@@ -34,9 +24,8 @@ typedef struct s_map
 	int		perso_y;
 	void	*mlx;
 	void	*win;
-	t_elem	**tab;
+	char	**tab;
 }	t_map;
-
 typedef struct s_count
 {
 	int	count_e;

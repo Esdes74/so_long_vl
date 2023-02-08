@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 16:34:32 by eslamber          #+#    #+#             */
-/*   Updated: 2023/02/07 18:19:55 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/02/08 14:07:20 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@ static int	add_list(t_list *lst, char c, int *count)
 
 	let = (char *) malloc(sizeof(char));
 	if (let == 0)
-		return (1);
+		return (ft_printf("Error\n"), 1);
 	*let = c;
 	if (*count == 0)
 		(*count)++;
 	if (addback_list(lst, let, CHAR, 1) == 0)
-		return (1);
+		return (free(let), ft_printf("Error\n"), 1);
 	return (0);
 }
 
@@ -124,11 +124,11 @@ int	parsing(char *s, t_map *map, t_list *lst)
 		if (map->x != len)
 			return (d_lst(lst, str, map), ft_printf("Error\nNot oblong\n"), 1);
 		if (annalyse(lst, str, map) == 1)
-			return (d_lst(lst, str, map), ft_printf("Error\n"), 1);
+			return (d_lst(lst, str, map), close(fd), 1);
 		free(str);
 		str = get_next_line(fd);
 	}
 	if (close(fd) == -1 || annalyse(lst, str, map) == 1)
-		return (d_lst(lst, str, map), ft_printf("Error\n"), 1);
+		return (d_lst(lst, str, map), 1);
 	return (free(str), 0);
 }

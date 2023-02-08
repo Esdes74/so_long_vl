@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   addback_list.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+        */
+/*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 20:54:05 by eslamber          #+#    #+#             */
-/*   Updated: 2023/01/04 16:09:41 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/02/08 13:45:57 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,15 @@ static void	init_cell(t_cell *cell, t_data *d_cell)
 	cell->prev = 0;
 }
 
+static int	verif_alloc(t_data *data, t_cell *cell)
+{
+	if (data == 0)
+		return (0);
+	if (cell == 0)
+		return (free(data), 0);
+	return (1);
+}
+
 int	addback_list(t_list *lst, void *data, t_type t, int debug)
 {
 	t_data	*d_cell;
@@ -42,8 +51,8 @@ int	addback_list(t_list *lst, void *data, t_type t, int debug)
 		return (0);
 	d_cell = (t_data *) malloc(sizeof(t_data));
 	cell = (t_cell *) malloc(sizeof(t_cell));
-	if (debug == 1 && (d_cell == 0 || cell == 0))
-		debuger_stacking(debug, 1);
+	if (verif_alloc(d_cell, cell) == 0)
+		return (0);
 	if (d_cell == 0 || cell == 0)
 		return (0);
 	init_data(data, t, FALSE, d_cell);

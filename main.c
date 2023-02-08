@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 17:01:34 by eslamber          #+#    #+#             */
-/*   Updated: 2023/02/07 18:05:35 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/02/08 13:43:34 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,8 +79,8 @@ int	main(int argc, char **argv)
 		return (delete_map(map), 1);
 	graph = graphics(&map);
 	if (graph == 2)
-		return (delete_map(map), destroy_mlx(map), ft_printf("Error\n"), 1);
+		return (delete_map(map), destroy_mlx(map), 1);
 	if (graph == 1)
-		return (delete_map(map), ft_printf("Error\n"), 1);
+		return (delete_map(map), 1);
 	return (delete_map(map), 0);
 }

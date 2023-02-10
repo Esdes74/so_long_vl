@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 16:34:32 by eslamber          #+#    #+#             */
-/*   Updated: 2023/02/08 17:12:07 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/02/10 12:36:20 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ static int	annalyse_char(t_list *lst, char c, t_count *count)
 	int	mod;
 
 	mod = 1;
-	if (c != '0' || c != '1' || c != 'P' || c != 'E' || c != 'C')
-		return (ft_printf("Error\n"), 1);
+	if (c != '0' && c != '1' && c != 'P' && c != 'E' && c != 'C')
+		return (ft_printf("Error\nCharactere not accepted\n", c), 1);
 	if (c == '0' || c == '1' || c == 'C')
 	{
 		if (c == 'C')
@@ -77,7 +77,7 @@ static int	annalyse(t_list *lst, char *s, t_map *map)
 	}
 	while (s != NULL && s[i])
 	{
-		if (annalyse_char(lst, s[i], &count) == 1)
+		if (s[i] != '\n' && annalyse_char(lst, s[i], &count) == 1)
 			return (1);
 		i++;
 	}

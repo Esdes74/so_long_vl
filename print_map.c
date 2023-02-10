@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 15:44:26 by eslamber          #+#    #+#             */
-/*   Updated: 2023/02/07 11:47:18 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/02/10 12:28:59 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,15 @@ void	print_map(t_map map)
 		j = 0;
 		while (j < map.x)
 		{
-			if (map.tab[i][j].elem == '1')
+			if (map.tab[i][j] == '1')
 				write(1, "X", 1);
-			else if (map.tab[i][j].elem == '0')
+			else if (map.tab[i][j] == '0')
 				write(1, " ", 1);
-			else if (map.tab[i][j].elem == 'C')
+			else if (map.tab[i][j] == 'C')
 				write(1, "C", 1);
-			else if (map.tab[i][j].elem == 'P')
+			else if (map.tab[i][j] == 'P')
 				write(1, "P", 1);
-			else if (map.tab[i][j].elem == 'E')
+			else if (map.tab[i][j] == 'E')
 				write(1, "E", 1);
 			j++;
 		}

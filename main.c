@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 17:01:34 by eslamber          #+#    #+#             */
-/*   Updated: 2023/02/08 13:43:34 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/03/08 12:43:42 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ static void	init_data_so_long(t_list *lst, t_map *map)
 	map->count_c = 0;
 	map->perso_x = -1;
 	map->perso_y = -1;
+	map->exit = 0;
 	map->mlx = 0;
 	map->win = 0;
 	map->tab = 0;

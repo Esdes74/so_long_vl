@@ -6,18 +6,39 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 18:26:52 by eslamber          #+#    #+#             */
-/*   Updated: 2023/02/08 15:07:17 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/03/08 12:52:17 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
+static void	print_exit(t_map *map)
+{
+	if (put_image("./sprites/exit.xpm", *map, map->perso_x * 28, \
+		map->perso_y * 28) == 1)
+			return (1);
+	map->tab[map->perso_y][map->perso_x] = 'E';
+	map->exit = 0;
+}
+
 static int	following_check(t_map *map, int x, int y)
 {
-	if (put_image("./sprites/grass.xpm", *map, map->perso_x * 28, \
-	map->perso_y * 28) == 1)
-		return (1);
-	map->tab[map->perso_y][map->perso_x] = '0';
+	if (map->exit != 2)
+	{
+		if (put_image("./sprites/grass.xpm", *map, map->perso_x * 28, \
+		map->perso_y * 28) == 1)
+			return (1);
+		map->tab[map->perso_y][map->perso_x] = '0';
+	}
+	if (map->exit == 2)
+		print_exit(map);
+	if (map->exit == 1)
+	{
+		map->exit = 2;
+		if (put_image("./sprites/grass.xpm", *map, map->perso_x * 28, \
+		map->perso_y * 28) == 1)
+			return (1);
+	}
 	map->tab[y][x] = 'P';
 	map->perso_y = y;
 	map->perso_x = x;
@@ -42,11 +63,11 @@ static int	check_move(t_map *map, int x, int y)
 	{
 		if (map->count_c == 0)
 		{
+			ft_printf("move = %d\n", move + 1);
 			ft_printf("WELL DONE !!!\n");
 			quit(map);
 		}
-		else
-			return (2);
+		map->exit = 1;
 	}
 	if (following_check(map, x, y) == 1)
 		return (ft_printf("Error\n"), 1);

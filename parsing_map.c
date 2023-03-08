@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 16:34:32 by eslamber          #+#    #+#             */
-/*   Updated: 2023/02/10 12:36:20 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/03/08 10:38:56 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,7 +118,8 @@ int	parsing(char *s, t_map *map, t_list *lst)
 	if (fd == -1)
 		return (free(lst), ft_printf("Error\nFile doesn't open\n"), 1);
 	str = get_next_line(fd);
-	map->x = ft_strlen(str) - 1;
+	if (str != 0)
+		map->x = ft_strlen(str) - 1;
 	while (str)
 	{
 		len = ft_strlen(str) - 1;

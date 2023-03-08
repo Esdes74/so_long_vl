@@ -6,7 +6,7 @@
 #    By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/07 16:40:33 by eslamber          #+#    #+#              #
-#    Updated: 2023/02/10 12:56:20 by eslamber         ###   ########.fr        #
+#    Updated: 2023/03/08 10:36:25 by eslamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@
 #
 
 # Compilation flags
-FLAGS := -Wall -Werror -Wextra
+FLAGS := -Wall -Werror -Wextra -g3
 CC := gcc
 
 FLAG_MLX := libft/mlx_linux/libmlx.a libft/mlx_linux/libmlx_Linux.a \

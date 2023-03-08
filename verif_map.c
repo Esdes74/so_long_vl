@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 10:08:07 by eslamber          #+#    #+#             */
-/*   Updated: 2023/02/08 14:14:00 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/03/08 10:41:59 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,9 +80,9 @@ static int	check_map(char **cpy, t_map *map)
 				return (ft_printf("Error\nCoins not reachable\n"), 1);
 			if (map->tab[y][x] == 'E' && cpy[y][x] != '*')
 				return (ft_printf("Error\nExit not reachable\n"), 1);
-			if (map->tab[y][x] == 'E' && y != 1 && x != 1 \
+			/*if (map->tab[y][x] == 'E' && y != 1 && x != 1 \
 			&& y != map->y - 2 && x != map->x - 2)
-				return (ft_printf("Error\nExit in center of map\n"), 1);
+				return (ft_printf("Error\nExit in center of map\n"), 1);*/
 			x++;
 		}
 		y++;
